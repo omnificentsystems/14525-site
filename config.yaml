@@ -50,7 +50,7 @@ paginate: 2  # set very low for demo purposes only, 5 - 10 or more would be reas
 # GoogleAnalytics offers deep insight into how visitors use your site. It's
 # optional, and free: https://www.google.com/analytics/analytics/
 # Only uncomment if you have a GA UD:
-# GoogleAnalytics: # add your UA-nnn-nnnnnnnn ID and uncomment
+GoogleAnalytics: UA-131609820-1
 
 # Disqus is a popular commenting system; to get an account visit:
 # https://disqus.com/admin/create/`
