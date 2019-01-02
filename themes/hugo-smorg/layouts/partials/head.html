@@ -14,8 +14,8 @@
 	{{ template "_internal/opengraph.html" . }}
 	<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.og_image }}">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1080">
-  <meta property="og:image:height" content="540">
+  <meta property="og:image:width" content="2160">
+  <meta property="og:image:height" content="1080">
 	{{ if ne .Kind "404" }}<link rel="canonical" href="{{ .Permalink }}">
 	{{- with $.Site.Params.description }}<meta name="description" content="{{.}}">{{ end }}
 	{{- range .AlternativeOutputFormats }} <!-- RSS, Atom feeds -->
