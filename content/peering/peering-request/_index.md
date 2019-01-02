@@ -7,7 +7,7 @@ layout: subsection
 ---
 ## Request Direct Peering with {{< as395077 >}}
 <br>
-<form action="https://formspree.io/matt@oscloud.io" method="POST">
+<form action="https://formspree.io/peering@395077.net" method="POST">
 <div class="field">
   <div class="field-body">
     <div class="field">
