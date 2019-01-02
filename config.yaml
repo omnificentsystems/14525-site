@@ -98,6 +98,11 @@ params:
     # favicon
     favicon: true
 
+    # Open Graph Metadata
+    og_image: images/og.png
+    description: Toolbox & Information for Customers, Peers, & Partners
+    title: 395077.net
+
     # cssPath: <css/smorg.css> site main CSS; can be supplemented by including
     # link or style elements in a custom site partials/head-custom.html
     cssPath: 'css/omnificent.css' # Default, override here
