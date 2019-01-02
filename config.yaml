@@ -29,7 +29,7 @@ title: "AS395077"
 # author email address is optional and can be # commented out.
 author:
     name: "Omnificent Systems Inc."
-    email: "peering@oscloud.io"
+    email: "peering@395077.net"
 
 # copyright appears in the default site footer
 copyright: '&copy; 2018 <a href="https://www.omnificentsystems.com">Omnificent Systems Inc.</a>'
@@ -94,6 +94,9 @@ enableEmoji: false
 params:
     # debug: true causes template path to be output at top of page, handy for dev
     debug: false
+
+    # favicon
+    favicon: true
 
     # cssPath: <css/smorg.css> site main CSS; can be supplemented by including
     # link or style elements in a custom site partials/head-custom.html
