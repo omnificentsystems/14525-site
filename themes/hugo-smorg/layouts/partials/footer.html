@@ -1,0 +1,42 @@
+<!--
+References config file variables:
+	.Site.Params.logotype
+	.Site.Params.footer
+	.Site.Params.subfooter
+	.Site.Copyright
+-->
+<footer class="footer">
+  <div class="container content">
+    <div class="has-text-centered">
+    <div class="columns">
+      <div class="column">
+      {{ with .Site.Params.typeosconnect }}{{ . | safeHTML }}{{end}}</div>
+      <div class="column">
+      {{ with .Site.Params.typeoscloud }}{{ . | safeHTML }}{{end}}</div>
+      <div class="column">
+      {{ with .Site.Params.typeosprotect }}{{ . | safeHTML }}{{end}}</div>
+      </div>
+      <br><br>
+	<div class="has-text-centered">
+		<p>{{ with ( print .Site.Params.footer " " .Site.Params.typeomnificent ) }}{{ . | safeHTML }}
+			  {{ else }}{{ "Add config: Params.footer" }}{{end}}
+		   <!--{{ with .Site.Params.logotype }}{{ . | safeHTML }}
+			  {{ else }}{{ "Add config: Params.logotype" }}{{end}} -->
+		   </p>
+		<hr>
+    <div class="has-text-centered">
+      <p>
+    {{ with .Site.Params.logoimage }}{{ . | safeHTML }}
+    {{ else }}{{ "Add config: Params.footer" }}{{end}}
+  </p>
+		<p class="has-text-grey is-size-7">
+		<!--{{ with .Site.Params.subfooter }} {{ . | safeHTML }}<br>
+			  {{ else }}{{ "Add config: Params.subfooter" }}{{end}}-->
+		{{ with .Site.Copyright }} {{ . | safeHTML }}<br>
+			  {{ else }}{{ "Add config: Copyright" }}{{end}}
+		</p>
+  </div>
+  </div>
+</div>
+</div>
+</footer>

@@ -1,0 +1,187 @@
+# exampleSite/config.yaml
+#
+# Configuration file for the demonstration of the Hugo-smorg theme,
+# mobile-first, responsive theme for the Hugo static site generator.
+# https://gohugo.io/
+
+# IMPORTANT:
+# themesDir is needed only to run exampleSite in-place; comment out or delete
+# this line for regular theme use:
+themesDir: "themes"
+
+# Mandatory $.Site Variables ---------------------------------------------
+# Site variables are built-in to the Hugo application and can be accessed using
+# the {{ $.Site.variablename }} template directive.
+#
+# Every site needs these few: theme, baseURL, languageCode and title
+# Name of the theme your Hugo site uses; leave this in place:
+theme: "hugo-smorg"
+baseURL: "https://395077.net"
+languageCode: "en-us"
+title: "AS395077"
+
+# Optional $.Site Variables ----------------------------------------------
+# More info on Site variables; https://gohugo.io/getting-started/configuration/
+#
+# Optional variables can be edited or commented out as desired.
+#
+# author name appears in RSS and Atom feeds;
+# author email address is optional and can be # commented out.
+author:
+    name: "Omnificent Systems Inc."
+    email: "peering@oscloud.io"
+
+# copyright appears in the default site footer
+copyright: '&copy; 2018 <a href="https://www.omnificentsystems.com">Omnificent Systems Inc.</a>'
+
+# metaDataFormat for new content pages generated with the `hugo new` command if
+# not otherwise specified by an archetype. Hugo-Smorg theme examples all use
+# the easy to understand and write YAML format.
+metaDataFormat: yaml
+
+# summaryLength limits the number of words included in auto-generated page
+# summaries Manual control of summaries is possible using the <!--more-->
+# directive in content files. https://gohugo.io/content-management/summaries/
+summaryLength: 20
+
+# paginate sets the maximum number of items (pages) in a page listing.
+paginate: 2  # set very low for demo purposes only, 5 - 10 or more would be reasonable
+
+# GoogleAnalytics offers deep insight into how visitors use your site. It's
+# optional, and free: https://www.google.com/analytics/analytics/
+# Only uncomment if you have a GA UD:
+# GoogleAnalytics: # add your UA-nnn-nnnnnnnn ID and uncomment
+
+# Disqus is a popular commenting system; to get an account visit:
+# https://disqus.com/admin/create/`
+# Uncommenting will result in Disqus capability extended to each blog post.
+# disqusShortname: "yourdiscussshortname"
+
+# Code oriented optional features:
+# pygments variables tune code syntax highlighting features Hugo provides
+pygmentsUseClasses: true
+pygmentsCodefencesGuessSyntax: true
+pygmentsCodefences: true
+
+# enableGitInfo populates a .GitInfo object for each git-managed page
+# The theme does not currently make use of the information.
+enableGitInfo: false
+
+# enableRobotsTXT: <false> enables generation of site robots.txt from
+# front-matter directives. Many sites may prefer to create a robots.txt file in
+# the site content directory.
+enableRobotsTXT: true
+
+# enableEmoji: <false> enables Emoji rendering see:
+# https://www.webpagefx.com/tools/emoji-cheat-sheet/
+enableEmoji: false
+
+
+
+
+
+
+
+
+# Optional Features ------------------------------------------------------
+
+# $.Site.Params variables are user-definable; the Hugo-Smorg theme makes use of
+# a number of variables to enable a certain amount of customization without
+# requiring editing of templates. See `docs/customizing.md` for more
+# information.
+
+# Access in templates via $.Site.Params.somevariablename
+params:
+    # debug: true causes template path to be output at top of page, handy for dev
+    debug: false
+
+    # cssPath: <css/smorg.css> site main CSS; can be supplemented by including
+    # link or style elements in a custom site partials/head-custom.html
+    cssPath: 'css/omnificent.css' # Default, override here
+
+    # VMware Clarity icons
+    # https://vmware.github.io/clarity/icons/clarity-icons
+    iconcssPath: 'node_modules/@clr/icons/clr-icons.min.css'
+    icondepsPath: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js'
+    iconjsPath: 'node_modules/@clr/icons/clr-icons.min.js'
+
+    # only_feed_summaries: Include only Page summaries in Atom and RSS feeds.
+    only_feed_summaries: true
+
+    # fullname: Used in head and footer partials; Atom and RSS generation.
+    # JSON-LD microdata for search engines
+    fullname: 'Omnificent Systems Inc.'
+
+    # Description: Used per fullname.
+    description: "Toolbox & Information for Customers, Peers, & Partners"
+
+    # Sites should customize their logo or wordmark here; Provided via partials/logo.html.
+    # used in default navigation and footer.
+    logoimage: '<img class="brand-logoimage" src="images/logo-os.png">'
+    typeomnificent: '<span class="brand-omnificent">OMNIFICENT</span><span class="brand-systems">SYSTEMS</span>'
+    typeoscloud: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-cloud">Cloud<clr-icon shape="vm" size="36"></span></span>'
+    typeosconnect: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-connect">Connect<clr-icon shape="switch" size="36"></clr-icon></span></span>'
+    typeosprotect: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-protect">Protect<clr-icon shape="shield" size="36"></clr-icon></span></span>'
+    headerAS395077: '<span class="brand-as">AS</span><span class="brand-395077">395077</span>'
+    typeomnificentSubtitle: '<span class="brand-subtitle">Omnificent Systems Inc.</span>'
+    logotype: '<span class="brand-as">AS</span><span class="brand-395077">395077</span>'
+    footer: 'Toolbox & Information for Customers, Peers, & Partners of'
+    subfooter: '<i class="fab fa-github"></i> <a href="https://www.omnificentsystems.com">omnificentsystems.com</a>'
+
+# Primary Navigation Menu (partials/nav.html) ----------------------------
+
+# The exampleSite menu exploses About, Projects and Blog
+# Note that "About" is added to the menu within content/about.md - it's
+# not a true "section" like post and project, although you can change this.
+
+# NOTE: Don't put leading "/" in the url parameter
+menu:
+    sectionmenu:
+        - name: "Info"
+          url: "info/"
+          identifier: "info"
+          weight: 10
+
+        - name: "Contact"
+          url: "info/contact/"
+          parent: "info"
+          weight: 101
+
+        - name: "PeeringDB"
+          post: <clr-icon shape="pop-out"></clr-icon>
+          url: "https://as395077.peeringdb.net"
+          parent: "info"
+          weight: 102
+
+        - name: "Peering"
+          url: "peering/peering-policy/"
+          identifier: "peering"
+          weight: 20
+
+        - name: "Peering Policy"
+          url: "peering/peering-policy/"
+          parent: "peering"
+          weight: 201
+
+        - name: "Peering Requests"
+          url: "peering/peering-request/"
+          parent: "peering"
+          weight: 202
+
+        - name: "Routing"
+          url: "routing/"
+          identifier: "routing"
+          weight: 30
+
+        - name: "BGP Communities"
+          url: "routing/bgp-communities/"
+          parent: "routing"
+          weight: 301
+
+outputs:
+  home:
+    - HTML
+
+# Optional, disable RSS feed
+#disableKinds:
+  #- RSS
