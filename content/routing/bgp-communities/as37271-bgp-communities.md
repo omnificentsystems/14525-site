@@ -8,114 +8,78 @@ categories: ['routing']
 layout: subsection
 ---
 
-# Workonline Communications BGP Community Definitions
+# Omnificent Systems BGP Community Definitions
 - - - - - -
 
-Workonline Communications AS37271 makes extensive use of BGP Standard
-Communities[^RFC1997] to carry supplementary routing information and
-provide additional control over route selection to its transit customers.
+Omnificent Systems leverages BGP Standard Communities to provide granular control of internal and external traffic engineering. This document describes the BGP Communities implemented in AS14525. The information contained herein should be considered authoritative for this purpose.
 
-This document describes the BGP Communities defined in the AS37271
-namespace[^range]. The information contained herein should be considered
-authoritative for this purpose.
+## Origin IDs
 
-## Group Codes
-
-Many of the below community definitions make use of 4-digit group codes.
-Groups are used to identify collections of external peerings with a common
-property, such as geographic location or connectivity at a particular IXP.
+Many of the below community definitions make use of 4-digit origin identifiers (IDs). These IDs are used to identify routes with common properties, such as geographic location or connectivity at a particular IXP.
 
 ### Group Code Definitions
 
-In the below community definitions, instances of the string `GGGG` should
-be replaced with the applicable group code, as per the following table:
+In the below community definitions, instances of the string `aaaa` should be replaced with the applicable origin ID:
+✖️✔️
 
-| Group Code | Description                                                             |
-| ---------- | ----------------------------------------------------------------------- |
-| `0000`     | Global - all internet peerings[^noinfo]                                 |
-| `100x`     | Non-transit[^nt] peerings on a continent, where `x` means:              |
-|            | `1` - Africa                                                            |
-|            | `2` - Asia                                                              |
-|            | `3` - North America                                                     |
-|            | `4` - South America                                                     |
-|            | `5` - Europe                                                            |
-|            | `6` - Oceania                                                           |
-|            | `7` - Antarctica                                                        |
-| `2xxx`     | Non-transit[^nt] peerings within a region, where `xxx` is the **UN M.49**[^M49] code of the region |
-| `3xxx`     | Non-transit[^nt] peerings within a country, where `xxx` is the **ISO 3166-1**[^ISO3166] numeric country code |
-| `4xxx`     | Non-transit[^nt] peerings within a metro area, where `xxx` means:       |
-|            | `000` - Any metro[^any]                                                 |
-|            | `001` - Cape Town / CPT                                                 |
-|            | `002` - Johannesburg / JHB                                              |
-|            | `003` - Durban / DRB                                                    |
-|            | `004` - London / LDN                                                    |
-|            | `005` - Frankfurt / FRA                                                 |
-|            | `006` - Amsterdam / AMS                                                 |
-|            | `007` - Nairobi / NBO                                                   |
-|            | `008` - Singapore / SIN                                                 |
-| `5001`     | Customer peerings                                                       |
-| `5002`     | Non-customer peerings                                                   |
-| `5003`     | Peerings at any NAP Africa IXP                                          |
-| `5100`     | All global transit provider peerings                                    |
-| `51xx`     | All peerings with a specific global transit provider, where `xx` means: |
-|            | `01` AS3356 - Level3                                                    |
-|            | `02` AS174 - Cogent                                                     |
-|            | `03` AS2914 - NTT                                                       |
-|            | `04` AS1299 - Telia                                                     |
-|            | `05` AS4809 - China Telecom                                             |
-|            | `06` AS6762 - Telecom Italia Sparkle                                    |
-|            | `07` AS3257 - GTT                                                       |
-|            | `08` AS6453 - Tata Communications                                       |
-| `5200`     | All IXP peerings                                                        |
-| `52xx`     | All peerings at a specific IXP, where `xx` means:                       |
-|            | `01` NAP Africa CT1                                                     |
-|            | `02` NAP Africa JB1                                                     |
-|            | `03` NAP Africa DB1                                                     |
-|            | `04` CINX                                                               |
-|            | `05` JINX                                                               |
-|            | `06` DINX                                                               |
-|            | `07` LINX LON1 "Juniper"                                                |
-|            | `08` LINX LON2 "Extreme"                                                |
-|            | `09` LONAP                                                              |
-|            | `10` DE-CIX FRA                                                         |
-|            | `11` NLix                                                               |
-|            | `12` AMS-IX                                                             |
-|            | `13` KIXP                                                               |
-|            | `14` Equinix SG                                                         |
+| Group Code   | Description                                                             | Exported to Peers
+| :---------   | :---------------------------------------------------------------------- | :---------------: |
+| `14525:0000` | Global - used to identify any and all routes that transit AS14525       | ✔️ |
+| `14525:0001` | Global - used to identify routes that originate from AS14525            | ✔️ |
+| `14525:0002` | Global - used to identify default routes that originate from AS14525 for downstream customers | ✖️ |
+| `14525:1xxx` | Location identifier for routes within a region, where `xxx` is the **UN M.49** code of the region |
+| `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1**[^ISO3166] numeric country code |
+| `14525:3xxx` | Location identifier for routes within a metro area, where `xxx` means:  |
+|              | `001` - Phoenix, AZ, USA / phx                                          |
+|              | `002` - Las Vegas, NV, USA / lsv                                        |
+|              | `003` - Honolulu, HI, USA / hnl                                         |
+|              | `004` - Dayton, OH, USA / dtn                                           |
+|              | `005` - New York City, NY, USA / nyc                                    |
+| `14525:4xxx` | Location identifier for routes within a particular Point of Presence (POP), where `xxx` means:  |
+|              | `001` - phx01 / IMDC AZP1                                               |
+|              | `002` - lsv01 / Switch Las Vegas                                        |
+|              | `003` - hnl01 / DRFortress                                              |
+|              | `004` - day01 / IMDC OHS1                                               |
+|              | `005` - nyc01 / IMDC NJE1                                               |
+| `14525:5001` | Customer routes                                                         |
+| `14525:5002` | Peer routes                                                             |
+| `14525:5100` | All transit provider routes                                             |
+| `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   |
+|              | `01` AS174 - Cogent                                                     |
+|              | `02` AS6939 - Hurricane Electric                                        |
+|              | `03` AS1299 - Telia                                                     |
+|              | `04` AS3257 - GTT                                                       |
+|              | `05` AS209 - CenturyLink                                                |
+|              | `06` AS701 - Verizon                                                    |
+| `14525:5200` | All IXP peerings                                                        |
+| `14525:52xx` | All peerings at a specific IXP, where `xx` means:                       |
+|              | `01` DRF-IX                                                             |
 
 ## Informational Communities
 
-The following communities are used to provide additional information
-over and above the information present in other BGP attributes.
-
-Informational communities are never accepted from external peers.
-
-If any of the below communities are received from external peers, they
-will be deleted on import, and an error status community will be
-appended to indicate that this has occurred.
+The following communities are used to provide additional information about the respective route. These communities are added at ingress by the responsible peering router, and any communities received from the peer are deleted.
 
 ### Informational Community Definitions
 
-Informational communities defined in the AS37271 namespace are as
-follows:
+Informational communities implemented in AS14525 are defined as:
 
 | Community Value | Description                         | Exported to peers |
 |-----------------|---------------------------------------------------|-----|
-| `37271:x`       | Imported from peer type `x`:                      | No  |
+| `14525:x`       | Imported from peer type `x`:                      | No  |
 |                 | `1` Transit provider                              |     |
 |                 | `2` Peering partner                               |     |
 |                 | `3` Transit customer                              |     |
 |                 | `4` AS37271 originated                            |     |
-| `37271:1x`      | Imported into BGP via method `x`:                 | No  |
+| `14525:1x`      | Imported into BGP via method `x`:                 | No  |
 |                 | `0` AS37271 originated                            |     |
 |                 | `1` Learnt from eBGP peer                         |     |
 |                 | `2` Protocol redistribution                       |     |
 |                 | `3` Imported from VRF RIB                         |     |
 |                 | `4` Generated default route                       |     |
-| `37271:8xx`     | Error status `xx` during import:                  | Yes |
+| `14525:8xx`     | Error status `xx` during import:                  | Yes |
 |                 | `01` Illegal community received from customer     |     |
 |                 | `02` Illegal community received from non-customer |     |
-| `37271:GGGG`    | Imported via peering in group `GGGG`              | Yes |
+| `14525:GGGG`    | Imported via peering in group `GGGG`              | Yes |
 
 ## Routing Control Communities
 
