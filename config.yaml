@@ -16,9 +16,9 @@ themesDir: "themes"
 # Every site needs these few: theme, baseURL, languageCode and title
 # Name of the theme your Hugo site uses; leave this in place:
 theme: "hugo-smorg"
-baseURL: "https://395077.net/"
+baseURL: "https://as14525.net/"
 languageCode: "en-us"
-title: "AS395077"
+title: "AS14525"
 
 # Optional $.Site Variables ----------------------------------------------
 # More info on Site variables; https://gohugo.io/getting-started/configuration/
@@ -29,7 +29,7 @@ title: "AS395077"
 # author email address is optional and can be # commented out.
 author:
     name: "Omnificent Systems Inc."
-    email: "peering@395077.net"
+    email: "peering@as14525.net"
 
 # copyright appears in the default site footer
 copyright: '&copy; 2018 <a href="https://www.omnificentsystems.com">Omnificent Systems Inc.</a>'
@@ -101,7 +101,7 @@ params:
     # Open Graph Metadata
     og_image: images/opengraph.jpg
     description: Toolbox & Information for Customers, Peers, & Partners
-    title: 395077.net
+    title: as14525.net
 
     # cssPath: <css/smorg.css> site main CSS; can be supplemented by including
     # link or style elements in a custom site partials/head-custom.html
@@ -130,9 +130,9 @@ params:
     typeoscloud: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-cloud">Cloud<clr-icon shape="vm" size="36"></span></span>'
     typeosconnect: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-connect">Connect<clr-icon shape="switch" size="36"></clr-icon></span></span>'
     typeosprotect: '<span class="brand-grid"><span class="brand-os">os</span><span class="brand-protect">Protect<clr-icon shape="shield" size="36"></clr-icon></span></span>'
-    headerAS395077: '<span class="brand-as">AS</span><span class="brand-395077">395077</span>'
+    headerAS395077: '<span class="brand-as">AS</span><span class="brand-number">14525</span>'
     typeomnificentSubtitle: '<span class="brand-subtitle">Omnificent Systems Inc.</span>'
-    logotype: '<span class="brand-as">AS</span><span class="brand-395077">395077</span>'
+    logotype: '<span class="brand-as">AS</span><span class="brand-number">14525</span>'
     footer: 'Toolbox & Information for Customers, Peers, & Partners of'
     subfooter: '<i class="fab fa-github"></i> <a href="https://www.omnificentsystems.com">omnificentsystems.com</a>'
 
@@ -157,22 +157,22 @@ menu:
 
         - name: "PeeringDB"
           post: <clr-icon shape="pop-out"></clr-icon>
-          url: "https://as395077.peeringdb.net"
+          url: "https://as14525.peeringdb.net"
           parent: "info"
           weight: 102
 
         - name: "Peering"
-          url: "peering/peering-policy/"
+          url: "peering/policy/"
           identifier: "peering"
           weight: 20
 
         - name: "Peering Policy"
-          url: "peering/peering-policy/"
+          url: "peering/policy/"
           parent: "peering"
           weight: 201
 
         - name: "Peering Requests"
-          url: "peering/peering-request/"
+          url: "peering/request/"
           parent: "peering"
           weight: 202
 
@@ -185,6 +185,12 @@ menu:
           url: "routing/bgp-communities/"
           parent: "routing"
           weight: 301
+
+        - name: "Routing Policy"
+          url: "routing/policy/"
+          parent: "routing"
+          weight: 302
+          
 
 outputs:
   home:

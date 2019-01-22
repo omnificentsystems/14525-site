@@ -1,6 +1,6 @@
 ---
 title: "BGP Communities"
-date: 2019-01-01
+date: 2019-01-21
 draft: false
 linktitle: BGP Communities
 tags: ['bgp', 'routing', 'communities']
@@ -8,128 +8,82 @@ categories: ['routing']
 layout: subsection
 ---
 
-# Structure
+# Omnificent Systems BGP Community Definitions
 
-{{% message %}}
-    This page is a work in progress and should be effectively ignored until this message no longer exists.
-{{% /message %}}
+Omnificent Systems leverages BGP Standard Communities to provide granular control of internal and external traffic engineering. This document describes the BGP Communities implemented in AS14525. The information contained herein should be considered authoritative for this purpose.
 
-Please contact [peering@oscloud.io](mailto:peering@oscloud.io) for any questions regarding BGP policy.
+## Origin IDs
 
----
+Many of the below community definitions make use of 4-digit origin identifiers (IDs). These IDs are used to identify routes with common properties, such as geographic location or connectivity at a particular IXP.
 
-## Large BGP Communities
+| Group Code   | Description                                                             | Exported to Peers
+| :---------   | :---------------------------------------------------------------------- | :---------------: |
+| `14525:0000` | Global - used to identify any and all routes that transit AS14525       | ✅ |
+| `14525:0001` | Global - used to identify routes that originate from AS14525            | ✅ |
+| `14525:0002` | Global - used to identify default routes that originate from AS14525 for downstream customers | ❌ |
+| `14525:1xxx` | Location identifier for routes within a region, where `xxx` is the **UN M.49** code of the region | ✅ |
+| `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1**[^ISO3166] numeric country code | ✅ |
+| `14525:3xxx` | Location identifier for routes within a metro area, where `xxx` means:  | ✅ |
+|              | `001` - Phoenix, AZ, USA / phx                                          | |
+|              | `002` - Las Vegas, NV, USA / lsv                                        | |
+|              | `003` - Honolulu, HI, USA / hnl                                         | |
+|              | `004` - Dayton, OH, USA / dtn                                           | |
+|              | `005` - New York City, NY, USA / nyc                                    | |
+| `14525:4xxx` | Location identifier for routes within a particular Point of Presence (POP), where `xxx` means:  | ✅ |
+|              | `001` - phx01 / IMDC AZP1                                               | |
+|              | `002` - lsv01 / Switch Las Vegas                                        | |
+|              | `003` - hnl01 / DRFortress                                              | |
+|              | `004` - day01 / IMDC OHS1                                               | |
+|              | `005` - nyc01 / IMDC NJE1                                               | |
+| `14525:5001` | Customer routes                                                         | ✅ |
+| `14525:5002` | Peer routes                                                             | ✅ |
+| `14525:5100` | All transit provider routes                                             | ✅ |
+| `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   | ✅ |
+|              | `01` AS174 - Cogent                                                     | |
+|              | `02` AS6939 - Hurricane Electric                                        | |
+|              | `03` AS1299 - Telia                                                     | |
+|              | `04` AS3257 - GTT                                                       | |
+|              | `05` AS209 - CenturyLink                                                | |
+|              | `06` AS701 - Verizon                                                    | |
+| `14525:5200` | All IXP peerings                                                        | ✅ |
+| `14525:52xx` | All routes from a specific IXP **route server**, where `xx` means:      | ✅ |
+|              | `01` DRF-IX                                                             | |
 
-Omnificent Systems leverages [Large BGP Communities](http://largebgpcommunities.net) to provide extremely granular control capabilities to transit customers, peers, and internally maintained customers.
+## Routing Control
 
-Unlike the Extended Community format introduced in [RFC 4360](https://tools.ietf.org/html/rfc4360), which is  comprised of one 32 bit field broken up into two 16 bit fields, large communities are comprised of one 96 bit field, delineated into three 32 bit fields.
+The following communities are used to influence routing decisions within AS14525.
 
-### Common Community Type Differences
+Many routing control communities are accepted from customer peers. However, only specific routing control communities are accepted from transit, or direct peers. These are indicated in the table below.
 
-Standard Communities ([RFC 1997](https://tools.ietf.org/html/rfc1997)):
+Routing control communities are never exported to external peers of AS14525.
 
-`NO-EXPORT`
+### Routing Control Community Definitions
 
-`NO-ADVERTISE`
+✅ = Community will be accepted and applied for valid customer prefixes.
+❎ = Community will be accepted for routes originating from the peer's AS. Community logic will not apply to the peer's customer or peer routes.
+❌ = Community will not be accepted.
 
-`NO-ADVERTISE-SUBCONFED`
+| Community Value | Description                              | Accepted from customer peers | Accepted from direct peers | Accepted from transit peers |
+|-----------------|-------------------------------------------------------------------|-----|-----|-----|
+| `14525:xxx`     | Set LOCAL_PREF in AS14525, where `xxx` equals:                    |     |     |     |
+|                 | `150` Set LOCAL_PREF to 150                                       | ✅ | ❎ | ❌ |
+|                 | `200` Set LOCAL_PREF to 200                                       | ❌ | ❎ | ❌ |
+|                 | `250` Set LOCAL_PREF to 250 (default for peers)                   | ❌ | ❎ | ❌ |
+|                 | `300` Set LOCAL_PREF to 300                                       | ✅ | ❌ | ❌ |
+|                 | `350` Set LOCAL_PREF to 350 (default for customers)               | ✅ | ❌ | ❌ |
+|                 | `400` Set LOCAL_PREF to 400                                       | ✅ | ❌ | ❌ |
+| `14525:7xx`     | AS14525 internal controls                                         | ❌ | ❌ | ❌ |
+| `14525:9xx`     | NEXT_HOP modification controls, where `xx` means:                 |     |     |    |
+|                 | `99` Blackhole traffic                                            | ✅ | ❎ | ❎ |
+| `14525:1xxxx`   | Prepend `14525` 1x to non-customer peers with origin ID `xxxx`    | ✅ | ❌ | ❌ |
+| `14525:2xxxx`   | Prepend `14525` 2x to non-customer peers with origin ID `xxxx`    | ✅ | ❌ | ❌ |
+| `14525:3xxxx`   | Prepend `14525` 3x to non-customer peers with origin ID `xxxx`    | ✅ | ❌ | ❌ |
+| `14525:4xxxx`   | Suppress export to non-customer peers with origin ID `xxxx`       | ✅ | ❌ | ❌ |
+| `14525:5xxxx`   | Don't suppress export to non-customer peers with origin ID `xxxx` | ✅ | ❌ | ❌ |
 
----
+## Changes and Version Control
 
-Extended Communities ([RFC 4360](https://tools.ietf.org/html/rfc4360)):
+Where notice of an impending change is deemed necessary, Omnificent Systems will make every attempt to notify affected customers or peers if it is determined that any impact will occur.
 
-`0-65535 : 0-65535`
+Workonline accepts no liability whatsoever for damages or losses of any nature whatsoever suffered by third parties as a result of their reliance on the information contained herein. By making use of any of information contained herein, the user acknowledges and agrees to these conditions.
 
----
-
-Large Communities ([RFC 8092](https://tools.ietf.org/html/rfc8092)):
-
-`0-4294967295 : 0-4294967295 : 0-4294967295`
-
-Typically, the three fields are structured as `Operator ASN : Function : Parameter`.
-
-For example:
-
-`ASN : Received from POP : osCloud AZ01` logic would be written as:
-
-`395077:100:11`
-
-`ASN : Prepend 3x : LEVEL 3` Logic would be written as:
-
-`395077:2001:3356`
-
----
-
-Recommendations for deployment can be found in [RFC 8195](https://tools.ietf.org/html/rfc8195).
-
-### Community Allocations
-
-The Omnificent Systems community structure is allocated into the following buckets:
-
-| ASN      | Function          | Parameter  | Description      |
-| -------- | ----------------- | ---------- | ---------------- |
-| `395077` | `0-999`           | `*`        | Informational    |
-| `395077` | `1000-1999`       | `*`        | Internal Actions |
-| `395077` | `2000-2999`       | `*`        | External Actions |
-| `395077` | `3000-3999`       | `*`        | Security Actions |
-| `395077` | `4000-4294967295` | `*`        | Unassigned       |
-
-## Community Assignments
-
-### Informational Communities
-
-#### Origin Tag Types
-
-|  Tag  |  Info         | Example              | Result                                                            |
-|:------:|:--------|:-----------------|:-----------------------------------------|
-| `100` | By POP ID | `395077:100:21` | Route learned/originated from **OH01** |
-| `200` | By PE Router   | `395077:200:1301` | Route learned/originated from **HI01 PE01** |
-| `300` | By Peer AS   | `395077:300:174` | Route learned from `AS174` |
-| `400` | By Route Type   | `395077:400:2001` | Transit Route |
-
-##### POPs
-
-| POP Location  | POP Name | POP ID |
-|:--            |   :--:   |  :--:  |
-| Phoenix, AZ   | AZ01     | **11** |
-| Las Vegas, NV | NV01     | **12** |
-| Honolulu, HI  | HI01     | **13** |
-| Dayton, OH    | OH01     | **21** |
-| Edison, NJ    | NJ01     | **22** |
-| Atlanta, GA   | GA01     | **23** |
-
-##### Peers
-
-#### Upstream Peers
-
-| Peer Name          | Peer ASN | AZ01 | NV01 | HI01 | OH01 | NJ01 | GA01 |
-|:------------------ |:-------- | :--: | :--: | :--: | :--: | :--: | :--: |
-| Cogent             | `174`    |  ✅  |  ✅  |     |  ✅  |  ✅  |      |
-| CenturyLink/Qwest  | `209`    |  ✅  |  ✅  |     |      |      |      |
-| CenturyLink/Level3 | `3356`   |      |      |      |      |      |  ✅  |
-| Hawaiian Telcom    | `36149`  |      |      |  ✅  |      |      |      |
-| Hurricane Electric | `6939`   |  ✅  |      |  ✅  |      |      |      |
-
-##### Route Types
-
-| Type | ID             |
-|:-------:|:-------:|
-| Peering | `1001` |
-| IX           | `1002` |
-| Transit   | `2001` |
-| Customer | `3001` |
-
-### Action Communities
-
-## Local Preference
-
-### By Route Type
-
-| Route Type | `AS395077` LocalPref |
-|:------------|:-----------------------|
-| Customer    | `140` |
-| Peer             | `80` |
-| IX                  | `60` |
-| Transit         | `40` |
-
-### By Location
