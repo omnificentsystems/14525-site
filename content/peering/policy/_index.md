@@ -8,164 +8,83 @@ categories: ['peering']
 layout: subsection
 ---
 
-# Workonline Communications IP Interconnection Policy
-- - - - - -
+# Omnificent Systems Inc IP Interconnection Policy
 
-This document describes the policy followed by Workonline when
-evaluating requests for the establishment of settlement-free IP
-interconnections between AS37271 and other autonomous systems.
+This document describes the policy followed by Omnificent Systems Inc when evaluating requests for the establishment of settlement-free IP interconnections between AS14525 and other autonomous systems.
 
-Everything contained herein applies equally to IPv4 and IPv6, as
-appropriate.
+Everything contained herein applies equally to IPv4 and IPv6, as appropriate.
 
-This document is provided for informational purposes only. Nothing
-herein should be construed as a binding offer to enter into a peering
-agreement. Workonline will at all times evaluate each request for
-peering on its individual merits, and reserves its rights to deviate in
-any way from this policy in its sole and absolute discretion.
+This document is provided for informational purposes only. Nothing herein should be construed as a binding offer to enter into a peering agreement. Omnificent Systems Inc will evaluate each peering request on its individual merits, and reserves its rights to deviate in any way from this policy in its sole and absolute discretion.
 
 ## Requesting Peering
 
-Operators wishing to establish peering with AS37271 on a settlement free
-basis should email peering@workonline.co.za, and include the details of
-the peering being requested, including:
-- Peer's ASN
-- A brief description of the peer's network and its business
-- PNI location or IXP
-- In the case of PNI, the interface speed required
-- Contact details for provisioning and operations
-- IP addressing details and other BGP session attributes
-- Information necessary for the construction of Workonline's ingress BGP
-  filters
-
-In all cases, prospective peers are encouraged to familiarise themselves
-with the content of this document, and to ensure that any requirements
-are met as fully as possible prior to initiating a peering request. If
-it is not possible, for whatever reason, to comply with an individual
-requirement, Workonline's attention should be drawn to that fact, and
-the reasons for which compliance is not possible clearly explained.
+Operators wishing to establish peering with AS37271 on a settlement free basis should email peering@workonline.co.za, and include the details of the peering being requested, including:
+* Potential Peer's ASN
+* A brief description of the peer's network and its business
+* PNI location or IXP
+* In the case of PNI, the interface speed requested
+* Contact details for provisioning and operations
 
 ## Operational & Routing Information
 
-In addition to the specific evaluation requirements listed below,
-prospective peers are strongly encouraged to familiarise themselves with
-the [Workonline Communications External Routing Policy](/routing-policy)
-which provides detailed information on the operational policies that
-determine the behaviour of all IP interconnections with AS37271.
-
-## Evaluation Criteria
-
-Workonline will evaluate all peering requests against the below
-criteria. Some criteria are marked *required*: requests to peer are highly
-unlikely to be accepted without **all** such criteria being met.
+In addition to the specific evaluation requirements listed below, prospective peers are strongly encouraged to familiarise themselves with the [Omnificent Systems External Routing Policy](/routing/policy) which provides detailed information on the operational policies that determine the behaviour of all IP interconnections with AS14525.
 
 ### Autonomous System Number
 *required*
 
-Peers must operate a properly allocated, globally unique autonomous
-system number. AS37271 will not peer with reserved or
-special-purpose[^iana-asn] ASNs.
+Peers must operate a properly allocated, globally unique autonomous system number. AS14525 will not peer with reserved or special-purpose ASNs.
 
 ### BGP Only Routing
 *required*
 
-AS37271 will exchange routing information for Internet networks with
-external peers using version 4 of the Border Gateway Protocol[^rfc4271]
-only.
+AS14525 will exchange routing information for Internet networks with external peers using Border Gateway Protocol version 4 only.
 
-Peers must only send traffic towards AS37271 destined to a prefix for
-which AS37271 has advertised reachability. Setting static routes towards
-AS37271 is expressly prohibited.
+Peers must only send traffic towards AS14525 destined to a prefix for which AS14525 has advertised reachability. Setting static routes towards AS14525 is expressly prohibited and will result in immediate depeering.
 
 ### Non-customer
 *required*
 
-Workonline does not peer with its IP transit customers, nor with its
-customers' customers.
-
-### Global Reachability
-*required*
-
-Peers must demonstrate that all announced prefixes (or their aggregates)
-are visible in the Internet DFZ.
+Omnificent Systems does not peer with its IP transit customers, nor with its customers' customers.
 
 ### Operational Contacts
 *required*
 
-Peers are required to operate a NOC (or equivalent) that is contactable
-on a 24x7x365 basis, staffed with suitably skilled network engineers,
-and available on a reasonable time-frame to jointly troubleshoot
-operational problems involving the peering interconnection.
+Peers are required to operate a contactable support center on a 24x7x365 basis, staffed with suitably skilled network engineers, and available on a reasonable time-frame to jointly troubleshoot operational problems involving the peering interconnection.
 
-Operational contact details should be published on Peering DB[^pdb],
-along with other relevant peering details.
+Operational contact details should be published on PeeringDB, along with other relevant peering details.
 
-### Multiple Locations
+### Locations
 *required*
 
-Peers should be willing and able to interconnect in at least 3
-geographically diverse locations. Peers should furthermore be willing to
-interconnect within any location, or at any IXP, where they and
-Workonline are both present.
+Peers should be willing and able to interconnect in any location, or at any Internet Exchange Point, where they and Omnificent Systems share a network point of presence. If additional transport is required to establish a peering relationship, parties agree to share any transport costs under mutually agreeable terms.
 
 ### Congestion Free Interconnections
 *required*
 
-Peers must maintain congestion free interconnections between themselves
-and AS37271 (or, in the case of IXP peering, between themselves and the
-IXP fabric). Aggregate interconnection capacity must be sufficient to
-operate congestion-free in the face of at least one failure.
-
-Peers must agree to upgrade interconnection capacity to meet growth in
-peak demand as and when required.
+Peers must maintain congestion free interconnections between themselves and AS14525 (or, in the case of IXP peering, between themselves and the IXP fabric). Peers must agree to upgrade interconnection capacity to meet growth in peak demand as and when required.
 
 ### Traffic Volume
 *required*
 
-Workonline does not require a minimum set threshold to consider peering
-at an IXP, although there should be sufficient traffic exchanged to
-warrant the administration of the peering relationship. For peering on
-PNI, Workonline requires a minimum 600 Mbps traffic exchange at the 95th
-percentile on a monthly basis.
-
-Workonline does not require traffic ingress/egress ratios in most cases.
-
-### Backbone Transport Capacity
-*required*
-
-Peers operating an Internet backbone must ensure they maintain
-sufficient on-net capacity to provide congestion free transport of
-traffic, including in the face of the failure of at least one
-interconnection with AS37271.
+Omnificent Systems does not require a minimum set threshold to consider IXP peering or PNI. The requesting party need only provide sufficient business case as part of the peering request.
 
 ### Documented Routing Policy
 *required*
 
-Peers should maintain a publicly accessible description of their
-external routing policy, in a form usable by Workonline engineers to
-determine the correctness of the routing information received in BGP.
+Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Workonline engineers to determine the correctness of the routing information received in BGP.
 
-At minimum, this should consist of the following RPSL objects,
-registered in one of the IRR databases mirrored by RADB[^radb]:
-- `autnum`: An object describing the policy and contact details for the
-  peer's ASN
-- `as-set`: An object describing the set of ASNs for which the peer
-  announces transit
-- `route`/`route6`: An object, for each prefix announced by the peer,
-  specifying the ASN originating that prefix in BGP
+At minimum, this should consist of the following RPSL objects, registered in a publicly available [IRR databases]():
 
-Workonline will use the above information to build inbound prefix
-filters automatically. Peers must ensure that this information is kept
-up to date by themselves and their customers at all times.
+* `autnum`: An object describing the policy and contact details for the peer's ASN
+* `as-set`: An object describing the set of ASNs for which the peer announces transit
+* `route`/`route6`/`route-set`: An object, for each prefix announced by the peer, specifying the ASN originating that prefix in BGP
+
+Omnificent Systems will use the above information to build inbound prefix filters automatically. Peers must ensure that this information is kept up to date by themselves and their customers at all times.
 
 ### Anti-spoofing
 *required*
 
-Peers must take reasonable measures to prevent IP packets with a spoofed
-source address being sent to Workonline via any peering interconnection.
-Workonline will have regard to the nature of the network operated by its
-peers when determining whether a particular measure is reasonable in
-this context.
+Peers must take reasonable measures to prevent IP packets with a spoofed source address being sent to Workonline via any peering interconnection. Omnificent Systems will have regard to the nature of the network operated by its peers when determining whether a particular measure is reasonable in this context.
 
 ### Anti-leak Filtering
 
