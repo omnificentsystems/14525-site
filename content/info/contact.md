@@ -6,6 +6,6 @@ slug: contact
 weight: 101
 ---
 
-Email: [info@395077.net](mailto:info@395077.net)
+Email: [info@as14525.net](mailto:info@as14525.net)
 
 Phone: [+1 888 434 1043](tel:+18884341043)

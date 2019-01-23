@@ -31,46 +31,46 @@ Operators wishing to establish peering with AS14525 on a settlement free basis s
 In addition to the specific evaluation requirements listed below, prospective peers are strongly encouraged to familiarise themselves with the [Omnificent Systems External Routing Policy](/routing/policy) which provides detailed information on the operational policies that determine the behaviour of all IP interconnections with AS14525.
 
 ### Autonomous System Number
-*required*
+###### (*required*)
 
 Peers must operate a properly allocated, globally unique autonomous system number. AS14525 will not peer with reserved or special-purpose ASNs.
 
 ### BGP Only Routing
-*required*
+###### (*required*)
 
 AS14525 will exchange routing information for Internet networks with external peers using Border Gateway Protocol version 4 only.
 
 Peers must only send traffic towards AS14525 destined to a prefix for which AS14525 has advertised reachability. Setting static routes towards AS14525 is expressly prohibited and will result in immediate depeering.
 
 ### Non-customer
-*required*
+###### (*required*)
 
 Omnificent Systems does not peer with its IP transit customers, nor with its customers' customers.
 
 ### Operational Contacts
-*required*
+###### (*required*)
 
 Peers are required to operate a contactable support center on a 24x7x365 basis, staffed with suitably skilled network engineers, and available on a reasonable time-frame to jointly troubleshoot operational problems involving the peering interconnection.
 
 Operational contact details should be published on PeeringDB, along with other relevant peering details.
 
 ### Locations
-*required*
+###### (*required*)
 
 Peers should be willing and able to interconnect in any location, or at any Internet Exchange Point, where they and Omnificent Systems share a network point of presence. If additional transport is required to establish a peering relationship, parties agree to share any transport costs under mutually agreeable terms.
 
 ### Congestion Free Interconnections
-*required*
+###### (*required*)
 
 Peers must maintain congestion free interconnections between themselves and AS14525 (or, in the case of IXP peering, between themselves and the IXP fabric). Peers must agree to upgrade interconnection capacity to meet growth in peak demand as and when required.
 
 ### Traffic Volume
-*required*
+###### (*required*)
 
 Omnificent Systems does not require a minimum set threshold to consider IXP peering or PNI. The requesting party need only provide sufficient business case as part of the peering request.
 
 ### Documented Routing Policy
-*required*
+###### (*required*)
 
 Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Workonline engineers to determine the correctness of the routing information received in BGP.
 
@@ -83,7 +83,7 @@ At minimum, this should consist of the following RPSL objects, registered in a p
 Omnificent Systems will use the above information to build inbound prefix filters automatically. Peers must ensure that this information is kept up to date by themselves and their customers at all times.
 
 ### Anti-spoofing
-*required*
+###### (*required*)
 
 Peers must take reasonable measures to prevent IP packets with a spoofed source address being sent to Workonline via any peering interconnection. Omnificent Systems will have regard to the nature of the network operated by its peers when determining whether a particular measure is reasonable in this context.
 

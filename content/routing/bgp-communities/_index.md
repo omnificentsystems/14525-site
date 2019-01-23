@@ -60,7 +60,9 @@ Routing control communities are never exported to external peers of AS14525.
 ### Routing Control Community Definitions
 
 ✅ = Community will be accepted and applied for valid customer prefixes.
+
 ❎ = Community will be accepted for routes originating from the peer's AS. Community logic will not apply to the peer's customer or peer routes.
+
 ❌ = Community will not be accepted.
 
 | Community Value | Description                              | Accepted from customer peers | Accepted from direct peers | Accepted from transit peers |
