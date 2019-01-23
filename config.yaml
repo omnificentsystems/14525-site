@@ -16,7 +16,8 @@ themesDir: "themes"
 # Every site needs these few: theme, baseURL, languageCode and title
 # Name of the theme your Hugo site uses; leave this in place:
 theme: "hugo-smorg"
-baseURL: "https://as14525.net/"
+# baseURL: "https://as14525.net/"
+baseURL: "http://as14525.net/"
 languageCode: "en-us"
 title: "AS14525"
 
