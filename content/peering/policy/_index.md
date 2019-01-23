@@ -1,7 +1,7 @@
 ---
 title: "Peering Policy"
 date: 2019-01-21
-draft: true
+draft: false
 linktitle: Peering Policy
 tags: ['policy', 'peering']
 categories: ['peering']

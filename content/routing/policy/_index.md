@@ -2,7 +2,7 @@
 ---
 title: "Routing Policy"
 date: 2019-01-21
-draft: true
+draft: false
 linktitle: Routing Policy
 tags: ['policy', 'routing']
 categories: ['routing']

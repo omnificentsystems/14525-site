@@ -76,11 +76,11 @@ layout: subsection
 <div class="label">Facility</div>
   <div class="select is-multiple">
     <select multiple size="5" name="Facility">
-      <option value="phx01"><code>phx01</code>Phoenix, AZ</option>
-      <option value="lsv01"><code>lsv01</code>Las Vegas, NV</option>
-      <option value="day01"><code>day01</code>Dayton, OH</option>
-      <option value="nyc01"><code>nyc01</code>New York, NY</option>
-      <option value="hnl01"><code>hnl01</code>Honolulu, HI</option>
+      <option value="phx01">US: Phoenix, AZ</option>
+      <option value="lsv01">US: Las Vegas, NV</option>
+      <option value="hnl01">US: Honolulu, HI</option>
+      <option value="day01">US: Dayton, OH</option>
+      <option value="nyc01">US: New York, NY</option>
     </select>
   </div>
 <br><br>
