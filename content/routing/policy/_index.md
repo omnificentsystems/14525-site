@@ -1,3 +1,4 @@
+
 ---
 title: "Routing Policy"
 date: 2019-01-21
@@ -13,15 +14,11 @@ layout: subsection
 
 This document describes the policy implemented at the borders of AS14525 to control the import and export of routing information with other autonomous systems.
 
-Workonline is a strong supporter and active member of the MANRS[^manrs] operator community, and considers compliance with the MANRS actions fundamental to our responsibilities to our customers and the Internet community at large.
-
-The policies defined herein are designed to provide the highest feasible levels of security, stability and performance for our inter-connectivity with other network operators.
-
-Readers are encouraged to contact peering@as14525.net if they have queries related to any of the information contained herein.
+The policies defined herein are designed to provide the highest feasible levels of security, stability and performance for our inter-connectivity with other network operators. Readers are encouraged to contact peering@as14525.net if they have queries related to the information presented.
 
 ## Finding Information
 
-Workonline maintains up to date information in multiple publicly available datasources, including:
+Omnificent Systems maintains up to date information in multiple publicly available datasources, including:
 
 * Peering DB: [as14525.peeringdb.com](https://as14525.peeringdb.com)
 * ARIN whois: []()
@@ -62,8 +59,9 @@ AS14525 will exchange routing information for Internet networks with external pe
 ### Bogon Address Space
 
 AS14525 will not accept routing information for, nor deliver IP packets addressed to or from, "Bogon" address space, including:
-* Non-global IPv4 address space per [IANA Special-Purpose IPv4 Address Registry]()
-* Non-global IPv6 address space per [IANA Special-Purpose IPv6 Address Registry]()
+
+* Non-global IPv4 address space per [IANA Special-Purpose IPv4 Address Registry](https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml)
+* Non-global IPv6 address space per [IANA Special-Purpose IPv6 Address Registry](https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml)
 * IPv4 or IPv6 address space present in the Team Cymru Fullbogons list
 
 ### Prefix Length
@@ -77,27 +75,29 @@ AS14525 will accept routing information for IP prefixes conforming to minimum an
 
 ### Special Purpose ASNs
 
-AS14525 will not accept BGP updates with ASNs belonging to the [IANA Special Purpose AS Numbers Registry]() in the `AS_PATH`. 
+AS14525 will not accept BGP updates with ASNs belonging to the [IANA Special Purpose AS Numbers Registry](https://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) in the `AS_PATH`.
 
-Single homed customers of AS14525 that do not qualify for the allocation of an ASN under the relevant RIR policies in force in their region will will be allocated an ASN by Omnificent Systems from the range reserved for private use (per [RFC6996]()) for the purposes of establishing eBGP peering with AS14525 only. Prefixes announced from such customers and advertised to other external peers will appear to originate at AS14525.
+Single homed customers of AS14525 that do not qualify for the allocation of an ASN under the relevant RIR policies in force in their region will will be allocated an ASN by Omnificent Systems from the range reserved for private use (per [RFC 6996](https://tools.ietf.org/html/rfc6996)) for the purposes of establishing eBGP peering with AS14525 only. Prefixes announced from such customers and advertised to other external peers will appear to originate at AS14525.
 
 ### Ingress BGP Filtering
 
 #### Prefix Filter Maintenance
 
-Omnificent Systems makes use of RPSL data contained in the distributed IRR system to maintain per-neighbor AS filters for all customer and peer networks of AS14525. Data is queried from the [NTT]() IRR mirror and data from all databases mirrored by NTT are included.
+Omnificent Systems makes use of RPSL data contained in the distributed IRR system to maintain per-neighbor AS filters for all customer and peer networks of AS14525.
 
-Omnificent Systems maintains an `as-set` object of the form `AS-AS14525` which may be used to prefix filter adjacencies with AS14525. Please note: its size should not be used as an indicator of the number of routes that a non-customer peer should expect to receive.
+Omnificent Systems maintains the following RPSL datasets which may be used to prefix filter adjacencies with AS14525:
+
+* `as-set` : `AS-AS14525`
+
+Please note: The size of `AS-AS14525` should not be used as an indicator of the number of routes that a non-customer peer should expect to receive.
 
 Ingress prefix-lists are built by recursively resolving the appropriate `as-set` down to a list of member ASNs, and then searching for `route` or `route6` objects with the `origin` attribute set to one of these ASNs. This process is repeated daily, and updated prefix-lists are installed on border routers at approximately 03:00 in the timezone local to each router.
 
-Prefixes received from customers and peers are accepted only if a `route` or `route6` object matching the advertised prefix and origin AS is found.
-
-In each case, prefixes received are subjected to the other conditions described herein, including minimum and maximum prefix length.
+Prefixes received from customers and peers are accepted only if a `route` or `route6` object matching the advertised prefix and origin AS is found. Prefixes received are subjected to the other conditions described in this document, including minimum and maximum prefix length.
 
 #### Maximum Prefixes Limits
 
-Omnificent Systems will sets limits on the maximum number of prefixes accepted from a given eBGP neighbor. When a reasonable suggested value is published in the PeeringDB, that value will be used. Otherwise, Omnificent Systems use its discretion to arrive at an appropriate value.
+Omnificent Systems sets limits on the maximum number of prefixes accepted from a given eBGP neighbor. When a reasonable suggested value is published in the PeeringDB, that value will be used. Otherwise, Omnificent Systems use its discretion to arrive at an appropriate value.
 
 #### `AS_PATH` Filters
 
@@ -107,10 +107,11 @@ Omnificent Systems filters all eBGP adjacencies with customers and peers based o
 
 #### Prefix Filtering Towards Customers
 
-AS14525 will advertise one or more of the following sets of prefixes towards its customer peers:
+> ### DFZ
+>
+> <cite><i><sub>Default Free Zone</sub></i></cite>
 
-> DFZ
-> <cite>Default Free Zone</cite>
+AS14525 will advertise one or more of the following sets of prefixes towards its customer peers:
 
 1. **Full DFZ Routes:**
    All routes learned by Omnificent Systems from customer and non-customer peers
@@ -130,9 +131,7 @@ AS14525 will advertise one or more of the following sets of prefixes towards its
 
 AS14525 will export towards non-customer peers only routes that are originated in AS14525 or imported from customer peers.
 
-Omnificent Systems maintains an `as-set` object `AS-AS14525` in the RADb database that includes all such prefixes, and may be used by neighboring networks to create and maintain the appropriate ingress session filters.
-
-Peers wishing to set a sensible maximum-prefixes limit on sessions with AS14525 should refer to the 'IPv4 Prefixes' and 'IPv6 Prefixes' field in our record on PeeringDB.
+Peers wishing to set a sensible maximum-prefixes limit on sessions with AS14525 should refer to the 'IPv4 Prefixes' and 'IPv6 Prefixes' field in our record on [PeeringDB](https://as14525.peeringdb.com).
 
 AS14525 will make every attempt to maintain consistent announcements of prefixes towards peers. However, advertisement of prefixes learned from customers may be suppressed at certain peering locations, or towards specific neighbor ASNs, as the result of traffic engineering communities received from customers, as described below.
 

@@ -5,9 +5,9 @@ draft: false
 linktitle: Peering Request
 layout: subsection
 ---
-## Request Direct Peering with {{< as395077 >}}
+## Request Direct Peering with {{< asn >}}
 <br>
-<form action="https://formspree.io/peering@395077.net" method="POST">
+<form action="https://formspree.io/peering@as14525.net" method="POST">
 <div class="field">
   <div class="field-body">
     <div class="field">
@@ -75,19 +75,19 @@ layout: subsection
 </div>
 <div class="label">Facility</div>
   <div class="select is-multiple">
-    <select multiple size="4" name="Facility">
-      <option value="AZ01">US: Phoenix, AZ</option>
-      <option value="NV01">US: Las Vegas, NV</option>
-      <option value="OH01">US: Dayton, OH</option>
-      <option value="NJ01">US: New York, NY</option>
-      <option value="HI01">US: Honolulu, HI</option>
+    <select multiple size="5" name="Facility">
+      <option value="phx01"><code>phx01</code>Phoenix, AZ</option>
+      <option value="lsv01"><code>lsv01</code>Las Vegas, NV</option>
+      <option value="day01"><code>day01</code>Dayton, OH</option>
+      <option value="nyc01"><code>nyc01</code>New York, NY</option>
+      <option value="hnl01"><code>hnl01</code>Honolulu, HI</option>
     </select>
   </div>
 <br><br>
 
 <div class="field is-grouped">
   <div class="control">
-    <p class="help">By submitting this request, you hereby agree to the <a href="peering/peering-policy/">Peering Policy.</a></p>
+    <p class="help">By submitting this request, you hereby agree to the <a href="peering/policy/">Peering Policy.</a></p>
     <button class="button is-link">Submit</button>
   </div>
 </div>

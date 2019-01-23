@@ -18,7 +18,8 @@ This document is provided for informational purposes only. Nothing herein should
 
 ## Requesting Peering
 
-Operators wishing to establish peering with AS37271 on a settlement free basis should email peering@workonline.co.za, and include the details of the peering being requested, including:
+Operators wishing to establish peering with AS14525 on a settlement free basis should email peering@workonline.co.za, and include the details of the peering being requested, including:
+
 * Potential Peer's ASN
 * A brief description of the peer's network and its business
 * PNI location or IXP
@@ -73,7 +74,7 @@ Omnificent Systems does not require a minimum set threshold to consider IXP peer
 
 Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Workonline engineers to determine the correctness of the routing information received in BGP.
 
-At minimum, this should consist of the following RPSL objects, registered in a publicly available [IRR databases]():
+At minimum, this should consist of the following RPSL objects, registered in a publicly available [IRR databases](http://www.irr.net/docs/list.html):
 
 * `autnum`: An object describing the policy and contact details for the peer's ASN
 * `as-set`: An object describing the set of ASNs for which the peer announces transit
@@ -88,66 +89,16 @@ Peers must take reasonable measures to prevent IP packets with a spoofed source 
 
 ### Anti-leak Filtering
 
-Peers should have mechanisms in place to ensure that only prefixes for
-which they are properly authorised to announce transit are exported to
-AS37271.
-
-### Announcement Consistency
-
-Peers operating an Internet backbone or with a dominantly inbound
-traffic profile should ensure that a consistent set of prefixes are
-announced to AS37271 at all points of interconnection, unless otherwise
-agreed on a case-by-case basis.
-
-### MANRS Participation
-
-Workonline is a committed participant in the MANRS[^manrs] community and
-prefers to peer with network operators that share the same commitment to
-global routing security.
-
-### Peering Contracts
-
-Workonline prefers not to sign contracts for peering. We will evaluate
-requests on a case-by-case basis, balancing the additional
-administration burden with the benefit from peering.
+Peers should have mechanisms in place to ensure that only prefixes for which they are properly authorized to announce are exported to AS14525.
 
 ### RPKI ROA Signing
 
-Whilst not currently used for routing validation, Workonline prefers to
-peer with operators who maintain validly signed ROAs for their own
-prefixes, and who encourage their customers to do the same.
-
-### Locally Transit-Free
-
-For peering in markets where Workonline offers IP transit services to
-its customers, we prefer that our peers are not IP transit customers of
-any other network operator within the same market.
+Omnificent Systems prefers to peer with operators who maintain validly signed ROAs for their own prefixes, and who encourage their customers to do the same.
 
 ### Operational Tools
 
-Workonline prefers to peer with network operators that maintain a set of
-publicly available troubleshooting tools (e.g. looking glass, route
-server, etc) that Workonline engineers can use to diagnose routing
-issues.
+Omnificent Systems prefers to peer with network operators that maintain a set of publicly available troubleshooting tools (e.g. looking glass, route server, etc) that Omnificent Systems engineers can use to diagnose routing issues.
 
 ## Review
 
-Where Workonline decides to enter into a new peering relationship, we do
-so, in part, on the basis of the peer's eligibility under the above
-criteria. As such, existing peering arrangements will be subject to
-periodic review, to ensure that conditions continue to be met.
-
-Where an existing peers circumstances change, Workonline encourages them
-to contact peering@workonline.co.za to discuss any potential impact on
-our continued peering relationship.
-
-[^iana-asn]:  IANA Special-Purpose Autonomous System (AS) Numbers Registry -
-              https://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml
-[^pdb]:       Peering DB -
-              https://peeringdb.com/
-[^radb]:      Merit RADb -
-              http://radb.net
-[^manrs]:     Mutually Agreed Norms for Routing Security (MANRS) -
-              https://www.routingmanifesto.org/
-[^rfc4271]:   A Border Gateway Protocol 4 (BGP-4) -
-              https://tools.ietf.org/html/rfc4271
+Omnificent Systems enters a peering relationship on the basis of the peer's eligibility under the above criteria. Existing peering arrangements will be subject to periodic review, to ensure that conditions continue to be met.

@@ -22,7 +22,7 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 | `14525:0001` | Global - used to identify routes that originate from AS14525            | ✅ |
 | `14525:0002` | Global - used to identify default routes that originate from AS14525 for downstream customers | ❌ |
 | `14525:1xxx` | Location identifier for routes within a region, where `xxx` is the **UN M.49** code of the region | ✅ |
-| `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1**[^ISO3166] numeric country code | ✅ |
+| `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1** numeric country code | ✅ |
 | `14525:3xxx` | Location identifier for routes within a metro area, where `xxx` means:  | ✅ |
 |              | `001` - Phoenix, AZ, USA / phx                                          | |
 |              | `002` - Las Vegas, NV, USA / lsv                                        | |
@@ -86,4 +86,3 @@ Routing control communities are never exported to external peers of AS14525.
 Where notice of an impending change is deemed necessary, Omnificent Systems will make every attempt to notify affected customers or peers if it is determined that any impact will occur.
 
 Workonline accepts no liability whatsoever for damages or losses of any nature whatsoever suffered by third parties as a result of their reliance on the information contained herein. By making use of any of information contained herein, the user acknowledges and agrees to these conditions.
-
