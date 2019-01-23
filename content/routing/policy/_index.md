@@ -22,7 +22,7 @@ Omnificent Systems maintains up to date information in multiple publicly availab
 * Peering DB: [as14525.peeringdb.com](https://as14525.peeringdb.com)
 * ARIN whois: [whois.arin.net](https://whois.arin.net/rest/asn/AS14525)
 * ARIN IRR Database: [rr.arin.net](https://www.arin.net/resources/routing/#querying)
-* Omnificent Network Services Informational Site: [as14525.net](https://as14525.net)
+* Omnificent Network Services Informational Site: [as14525.net](/)
 
 If this document, or the above locations do not contain the information you are looking for, or if any information contained therein appears to be inaccurate, please email peering@as14525.net.
 
