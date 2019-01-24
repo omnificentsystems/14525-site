@@ -42,11 +42,6 @@ AS14525 will exchange routing information for Internet networks with external pe
 
 Peers must only send traffic towards AS14525 destined to a prefix for which AS14525 has advertised reachability. Setting static routes towards AS14525 is expressly prohibited and will result in immediate depeering.
 
-### Non-customer
-###### (*required*)
-
-Omnificent Systems does not peer with its IP transit customers, nor with its customers' customers.
-
 ### Operational Contacts
 ###### (*required*)
 
