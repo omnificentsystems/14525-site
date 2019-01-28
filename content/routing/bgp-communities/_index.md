@@ -19,8 +19,6 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 | Group Code   | Description                                                             | Exported to Peers
 | :---------   | :---------------------------------------------------------------------- | :---------------: |
 | `14525:0000` | Global - used to identify any and all routes that transit AS14525       | ✅ |
-| `14525:0001` | Global - used to identify routes that originate from AS14525            | ✅ |
-| `14525:0002` | Global - used to identify default routes that originate from AS14525 for downstream customers | ❌ |
 | `14525:1xxx` | Location identifier for routes within a region, where `xxx` is the **UN M.49** code of the region | ✅ |
 | `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1** numeric country code | ✅ |
 | `14525:3xxx` | Location identifier for routes within a metro area, where `xxx` means:  | ✅ |
@@ -35,8 +33,9 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 |              | `003` - hnl01 / DRFortress                                              | |
 |              | `004` - day01 / IMDC OHS1                                               | |
 |              | `005` - nyc01 / IMDC NJE1                                               | |
-| `14525:5001` | Customer routes                                                         | ✅ |
-| `14525:5002` | Peer routes                                                             | ✅ |
+| `14525:5000` | AS14525 Originated Routes                                               | ✅ |
+| `14525:5001` | Customer Originated Routes                                              | ✅ |
+| `14525:5002` | Peer Originated Routes                                                  | ✅ |
 | `14525:5100` | All transit provider routes                                             | ✅ |
 | `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   | ✅ |
 |              | `01` AS174 - Cogent                                                     | |
