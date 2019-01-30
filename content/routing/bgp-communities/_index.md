@@ -34,19 +34,23 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 |              | `004` - day01 / IMDC OHS1                                               | |
 |              | `005` - nyc01 / IMDC NJE1                                               | |
 | `14525:5000` | AS14525 Originated Routes                                               | ✅ |
-| `14525:5001` | Customer Originated Routes                                              | ✅ |
-| `14525:5002` | Peer Originated Routes                                                  | ✅ |
-| `14525:5100` | All transit provider routes                                             | ✅ |
-| `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   | ✅ |
+| `14525:5001` | AS14525 Originated Aggregates                                           | ✅ |
+| `14525:5100` | All transit provider routes                                             | ❌ |
+| `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   | ❌ |
 |              | `01` AS174 - Cogent                                                     | |
 |              | `02` AS6939 - Hurricane Electric                                        | |
 |              | `03` AS1299 - Telia                                                     | |
 |              | `04` AS3257 - GTT                                                       | |
 |              | `05` AS209 - CenturyLink                                                | |
 |              | `06` AS701 - Verizon                                                    | |
-| `14525:5200` | All IXP peerings                                                        | ✅ |
-| `14525:52xx` | All routes from a specific IXP **route server**, where `xx` means:      | ✅ |
+| `14525:5200` | All IXP peerings                                                        | ❌ |
+| `14525:52xx` | All routes from a specific IXP **route server**, where `xx` means:      | ❌ |
 |              | `01` DRF-IX                                                             | |
+| `14525:5300` | Peer Originated Routes                                                  | ❌ |
+| `14525:53xx` | All routes from a specific Peer, where `xx` means:                      | ❌ |
+|              | `01` Pacific Wave                                                       | |
+| `14525:5400` | Customer Originated Routes                                              | ❌ |
+| `14525:54xx` | All routes from a specific Customer, where `xx` is equal to the internal customer ID. | ❌ |
 
 ## Routing Control
 
