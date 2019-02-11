@@ -47,8 +47,7 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 | `14525:52xx` | All routes from a specific IXP **route server**, where `xx` means:      | ❌ |
 |              | `01` DRF-IX                                                             | |
 | `14525:5300` | Peer Originated Routes                                                  | ❌ |
-| `14525:53xx` | All routes from a specific Peer, where `xx` means:                      | ❌ |
-|              | `01` Pacific Wave                                                       | |
+| `14525:53xx` | All routes from a specific Peer, where `xx` is equal to the internal peer ID. | ❌ |
 | `14525:5400` | Customer Originated Routes                                              | ❌ |
 | `14525:54xx` | All routes from a specific Customer, where `xx` is equal to the internal customer ID. | ❌ |
 
