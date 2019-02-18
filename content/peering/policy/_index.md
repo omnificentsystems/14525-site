@@ -12,23 +12,17 @@ layout: subsection
 
 This document describes the policy followed by Omnificent Systems Inc when evaluating requests for the establishment of settlement-free IP interconnections between AS14525 and other autonomous systems.
 
-Everything contained herein applies equally to IPv4 and IPv6, as appropriate.
-
-This document is provided for informational purposes only. Nothing herein should be construed as a binding offer to enter into a peering agreement. Omnificent Systems Inc will evaluate each peering request on its individual merits, and reserves its rights to deviate in any way from this policy in its sole and absolute discretion.
+Omnificent Systems Inc will evaluate each peering request on its individual merits, and reserves its rights to deviate in any way from this policy in its sole and absolute discretion.
 
 ## Requesting Peering
 
-Operators wishing to establish peering with AS14525 on a settlement free basis should email peering@workonline.co.za, and include the details of the peering being requested, including:
+Operators wishing to establish peering with AS14525 on a settlement free basis should email peering@as14525.net or complete the [peering request form(https://as14525.net/peering/request/), and include the details of the peering being requested, including:
 
 * Potential Peer's ASN
 * A brief description of the peer's network and its business
 * PNI location or IXP
 * In the case of PNI, the interface speed requested
 * Contact details for provisioning and operations
-
-## Operational & Routing Information
-
-In addition to the specific evaluation requirements listed below, prospective peers are strongly encouraged to familiarise themselves with the [Omnificent Systems External Routing Policy](/routing/policy) which provides detailed information on the operational policies that determine the behaviour of all IP interconnections with AS14525.
 
 ### Autonomous System Number
 ###### (*required*)
@@ -76,11 +70,6 @@ At minimum, this should consist of the following RPSL objects, registered in a p
 * `route`/`route6`/`route-set`: An object, for each prefix announced by the peer, specifying the ASN originating that prefix in BGP
 
 Omnificent Systems will use the above information to build inbound prefix filters automatically. Peers must ensure that this information is kept up to date by themselves and their customers at all times.
-
-### Anti-spoofing
-###### (*required*)
-
-Peers must take reasonable measures to prevent IP packets with a spoofed source address being sent to Workonline via any peering interconnection. Omnificent Systems will have regard to the nature of the network operated by its peers when determining whether a particular measure is reasonable in this context.
 
 ### Anti-leak Filtering
 
