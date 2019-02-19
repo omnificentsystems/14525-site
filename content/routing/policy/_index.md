@@ -191,11 +191,11 @@ AS14525 will send and accept routes with the `COMMUNITIES` attribute present to 
 
 #### Well Known Communities
 
-BGP communities in the range `65535:0 - 65535:65535` are reserved for use as well known. Of the communities listed in the [IANA registry](), the following are honored in AS14525. Any well-known communities not listed are handled as described in the preceding section.
+BGP communities in the range `65535:0 - 65535:65535` are reserved for use as well known. Of the communities listed in the [IANA registry](https://www.iana.org/assignments/bgp-well-known-communities/bgp-well-known-communities.xhtml), the following are honored in AS14525. Any well-known communities not listed are handled as described in the preceding section.
 
 - `NO_EXPORT` (`65535:1`)
-  AS14525 will suppress the export of routes received with the `NO_EXPORT` community attached to any external BGP peers, as described in [RFC1997]().
-- `NO_ADVERTISE` (`65535:2`) AS14525 routers will suppress all advertisement of routes received with the `NO_ADVERTISE` community attached to any internal or external BGP peers, as described in [RFC1997]()
+  AS14525 will suppress the export of routes received with the `NO_EXPORT` community attached to any external BGP peers, as described in [RFC1997](https://tools.ietf.org/html/rfc1997).
+- `NO_ADVERTISE` (`65535:2`) AS14525 routers will suppress all advertisement of routes received with the `NO_ADVERTISE` community attached to any internal or external BGP peers, as described in [RFC1997](https://tools.ietf.org/html/rfc1997)
 
 Where notice of an impending change is deemed necessary, Omnificent Systems will make every attempt to notify affected customers or peers if it is determined that any impact will occur.
 
