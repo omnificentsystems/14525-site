@@ -61,7 +61,7 @@ Omnificent Systems does not require a minimum set threshold to consider IXP peer
 ### Documented Routing Policy
 ###### (*required*)
 
-Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Workonline engineers to determine the correctness of the routing information received in BGP.
+Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Omnificent Systmes engineers to determine the correctness of the routing information received in BGP.
 
 At minimum, this should consist of the following RPSL objects, registered in a publicly available [IRR databases](http://www.irr.net/docs/list.html):
 
