@@ -16,7 +16,7 @@ Omnificent Systems Inc will evaluate each peering request on its individual meri
 
 ## Requesting Peering
 
-Operators wishing to establish peering with AS14525 on a settlement free basis should email peering@as14525.net or complete the [peering request form(https://as14525.net/peering/request/), and include the details of the peering being requested, including:
+Operators wishing to establish peering with AS14525 on a settlement free basis should email peering@as14525.net or complete the [peering request form](https://as14525.net/peering/request/), and include the details of the peering being requested, including:
 
 * Potential Peer's ASN
 * A brief description of the peer's network and its business
