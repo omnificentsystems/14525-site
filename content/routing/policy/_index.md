@@ -138,7 +138,7 @@ To prevent the inadvertent advertisement of transit between non-customer network
 
 ## Route Selection and BGP Attribute Handling
 
-Workonline maintains a [publicly available looking-glass]() to inspect route selection towards external networks from the perspective of AS145251.
+<!--Omnificent Systems maintains a [publicly available looking-glass]() to inspect route selection towards external networks from the perspective of AS14525.--->
 
 The following BGP attribute handling policies define the expected route selection, for traffic routed to and from AS14525.
 
@@ -199,4 +199,4 @@ BGP communities in the range `65535:0 - 65535:65535` are reserved for use as wel
 
 Where notice of an impending change is deemed necessary, Omnificent Systems will make every attempt to notify affected customers or peers if it is determined that any impact will occur.
 
-Workonline accepts no liability whatsoever for damages or losses of any nature whatsoever suffered by third parties as a result of their reliance on the information contained herein. By making use of any of information contained herein, the user acknowledges and agrees to these conditions.
+Omnificent Systems Inc accepts no liability whatsoever for damages or losses suffered by third parties as a result of their reliance on the information contained herein. By making use of any of information contained herein, the user acknowledges and agrees to these conditions.
