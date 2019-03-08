@@ -49,17 +49,14 @@ Operational contact details should be published on PeeringDB, along with other r
 Peers should be willing and able to interconnect in any location, or at any Internet Exchange Point, where they and Omnificent Systems share a network point of presence. If additional transport is required to establish a peering relationship, parties agree to share any transport costs under mutually agreeable terms.
 
 ### Congestion Free Interconnections
-###### (*required*)
 
 Peers must maintain congestion free interconnections between themselves and AS14525 (or, in the case of IXP peering, between themselves and the IXP fabric). Peers must agree to upgrade interconnection capacity to meet growth in peak demand as and when required.
 
 ### Traffic Volume
-###### (*required*)
 
 Omnificent Systems does not require a minimum set threshold to consider IXP peering or PNI. The requesting party need only provide sufficient business case as part of the peering request.
 
 ### Documented Routing Policy
-###### (*required*)
 
 Peers should maintain a publicly accessible description of their external routing policy, in a form usable by Omnificent Systmes engineers to determine the correctness of the routing information received in BGP.
 
