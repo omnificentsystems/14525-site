@@ -43,6 +43,7 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 |              | `04` AS3257 - GTT                                                       | |
 |              | `05` AS209 - CenturyLink                                                | |
 |              | `06` AS701 - Verizon                                                    | |
+|              | `07` AS40300 - DRFortress (DRFConnect)                                  | |
 | `14525:5200` | All IXP peerings                                                        | ❌ |
 | `14525:52xx` | All routes from a specific IXP **route server**, where `xx` means:      | ❌ |
 |              | `01` DRF-IX                                                             | |
