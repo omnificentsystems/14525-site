@@ -23,18 +23,22 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 | `14525:2xxx` | Location identifier for routes within a country, where `xxx` is the **ISO 3166-1** numeric country code | ✅ |
 | `14525:3xxx` | Location identifier for routes within a metro area, where `xxx` means:  | ✅ |
 |              | `001` - Phoenix, AZ, USA / phx                                          | |
-|              | `002` - Las Vegas, NV, USA / lsv                                        | |
+|              | `002` - Las Vegas, NV, USA / las                                        | |
 |              | `003` - Honolulu, HI, USA / hnl                                         | |
 |              | `004` - Dayton, OH, USA / dtn                                           | |
 |              | `005` - New York City, NY, USA / nyc                                    | |
 | `14525:4xxx` | Location identifier for routes within a particular Point of Presence (POP), where `xxx` means:  | ✅ |
 |              | `001` - phx01 / IMDC AZP1                                               | |
-|              | `002` - lsv01 / Switch Las Vegas                                        | |
+|              | `002` - las01 / Switch Las Vegas                                        | |
 |              | `003` - hnl01 / DRFortress                                              | |
-|              | `004` - day01 / IMDC OHS1                                               | |
+|              | `004` - dtn01 / IMDC OHS1                                               | |
 |              | `005` - nyc01 / IMDC NJE1                                               | |
 | `14525:5000` | AS14525 Originated Routes                                               | ✅ |
 | `14525:5001` | AS14525 Originated Aggregates                                           | ✅ |
+| `14525:501x` | AS14525 Regional Aggregates                                             | ✅ |
+|              | `1` - phx & las                                                         | |
+|              | `2` - hnl                                                               | |
+|              | `3` - dtn                                                               | |
 | `14525:5100` | All transit provider routes                                             | ❌ |
 | `14525:51xx` | All routes with a specific global transit provider, where `xx` means:   | ❌ |
 |              | `01` AS174 - Cogent                                                     | |
