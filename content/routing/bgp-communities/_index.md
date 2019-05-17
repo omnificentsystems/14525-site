@@ -35,7 +35,7 @@ Many of the below community definitions make use of 4-digit origin identifiers (
 |              | `005` - nyc01 / IMDC NJE1                                               | |
 | `14525:5000` | AS14525 Originated Routes                                               | ✅ |
 | `14525:5001` | AS14525 Originated Aggregates                                           | ✅ |
-| `14525:501x` | AS14525 Regional Aggregates                                             | ✅ |
+| `14525:501x` | AS14525 Originated Regional Aggregates, where `x` means:                | ✅ |
 |              | `1` - phx & las                                                         | |
 |              | `2` - hnl                                                               | |
 |              | `3` - dtn                                                               | |
